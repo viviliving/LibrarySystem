@@ -5,6 +5,19 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+    <filter>
+        <filter-name>EnCodingFiliter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EnCodingFiliter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- 从类路径下加载spring配置文件，classpath关键字特指类路径下的加载 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -29,5 +42,6 @@
         <servlet-name>book</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 
 </web-app>
